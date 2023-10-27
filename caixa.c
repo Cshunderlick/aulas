@@ -81,7 +81,7 @@ void login()
 // Função para salvar os clientes em um arquivo
 void salvarClientes()
 {
-    FILE *arquivo = fopen("clientes.txt", "w");
+    FILE *arquivo = fopen("clientes.csv", "w");
     if (arquivo == NULL)
     {
         printf("Erro ao abrir o arquivo.\n");
@@ -93,7 +93,7 @@ void salvarClientes()
         fprintf(arquivo, "%s\n", clientes[i].nome);
         fprintf(arquivo, "%s\n", clientes[i].email);
         fprintf(arquivo, "%s\n", clientes[i].telefone);
-        fprintf(arquivo, "%.2lf\n", clientes[i].saldo);
+        fprintf(arquivo, "%.2lf\n\n", clientes[i].saldo);
     }
 
     fclose(arquivo);
@@ -102,7 +102,7 @@ void salvarClientes()
 // Função para carregar os clientes de um arquivo
 void carregarClientes()
 {
-    FILE *arquivo = fopen("clientes.txt", "r");
+    FILE *arquivo = fopen("clientes.csv", "r");
     if (arquivo == NULL)
     {
         printf("Arquivo de clientes nao encontrado.\n");
@@ -158,6 +158,7 @@ void registrarTransacao()
 {
     if (numClientes == 0)
     {
+        system("cls");
         printf("=============================================\n");
         printf("     Nenhum cliente cadastrado.             \n");
         printf("=============================================\n");
@@ -184,7 +185,7 @@ void registrarTransacao()
             return;
         }
     }
-
+    system("cls");
     printf("=============================================\n");
     printf("      Cliente nao encontrado.                \n");
     printf("=============================================\n");
@@ -195,6 +196,7 @@ void listarClientes()
 {
     if (numClientes == 0)
     {
+        system("cls");
         printf("=============================================\n");
         printf("     Nenhum cliente cadastrado.             \n");
         printf("=============================================\n");
@@ -274,7 +276,7 @@ void calcularSomaSaldos()
     }
     system("cls");
     printf("=============================================\n");
-    printf("  Soma dos saldos de todos os clientes: R$%.2lf\n", soma);
+    printf("Soma dos saldos de todos os clientes: R$%.2lf\n", soma);
     printf("=============================================\n");
 }
 
@@ -404,4 +406,4 @@ int main()
     }
 
     return 0;
-}
+} 
